@@ -349,37 +349,37 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
 
         PellitoryGatherer = 703,
 
-        ChocoboRaincoat = 704,
+        DusklightAethersand = 704,
 
-        DusklightAethersand = 1704,
+        DusklightAethersandHq = 705,
 
-        DusklightAethersandHq = 1705,
+        DawnlightAethersand = 706,
 
-        DawnlightAethersand = 1706,
+        DawnlightAethersandHq = 707,
 
-        DawnlightAethersandHq = 1707,
+        EverbrightAethersand = 708,
 
-        EverbrightAethersand = 1708,
+        EverbrightAethersandHq = 709,
 
-        EverbrightAethersandHq = 1709,
+        EverbornAethersand = 710,
 
-        EverbornAethersand = 1710,
+        EverbornAethersandHq = 711,
 
-        EverbornAethersandHq = 1711,
+        EverdeepAethersand = 712,
 
-        EverdeepAethersand = 1712,
+        EverdeepAethersandHq = 713,
 
-        EverdeepAethersandHq = 1713,
+        GuerdonVI = 714,
 
-        GuerdonVI = 1714,
+        GuileVI = 715,
 
-        GuileVI = 1715,
+        GraspVI = 716,
 
-        GraspVI = 1716,
+        ChocoboRaincoat = 717,
 
-        BlueBobbit = 705,
+        BlueBobbit = 718,
 
-        StoneflyLarva = 706,
+        StoneflyLarva = 719,
 
         #endregion YellowGathererItems
 #else

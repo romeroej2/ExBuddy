@@ -351,7 +351,7 @@ namespace ExBuddy.OrderBotTags.Behaviors
 				}
 
 #if RB_CN
-                if ((Location == Locations.MorDhona || Location == Locations.Idyllshire)
+                if ((Location == Locations.MorDhona)
                     && (purchaseItemInfo.ShopType == ShopType.YellowCrafterItems || purchaseItemInfo.ShopType == ShopType.YellowGathererItems))
                 {
                     Logger.Warn(Localization.Localization.ExTurnInCollectable_FailedPurchaseMorDhona, purchaseItemData.EnglishName);
@@ -359,19 +359,19 @@ namespace ExBuddy.OrderBotTags.Behaviors
                 }
 
                 ticks = 0;
-				while (SelectIconString.IsOpen && ticks++ < 5 && Behaviors.ShouldContinue)
-				{
-                    if ((Location == Locations.MorDhona || Location == Locations.Idyllshire) && (purchaseItemInfo.ShopType == ShopType.RedGatherer50 || purchaseItemInfo.ShopType == ShopType.RedGatherer61))
+                while (SelectIconString.IsOpen && ticks++ < 5 && Behaviors.ShouldContinue)
+                {
+                    if ((Location == Locations.MorDhona) && (purchaseItemInfo.ShopType == ShopType.RedGatherer50 || purchaseItemInfo.ShopType == ShopType.RedGatherer58))
                     {
-                        SelectIconString.ClickSlot((uint)purchaseItemInfo.ShopType - 3);
+                        SelectIconString.ClickSlot((uint)purchaseItemInfo.ShopType - 5);
                     }
                     else
                     {
                         SelectIconString.ClickSlot((uint)purchaseItemInfo.ShopType);
                     }
 
-					await shopExchangeCurrency.Refresh(5000);
-				}
+                    await shopExchangeCurrency.Refresh(5000);
+                }
 #else
 
                 if ((Location == Locations.MorDhona)
