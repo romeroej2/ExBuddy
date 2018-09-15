@@ -768,6 +768,13 @@ namespace ExBuddy.OrderBotTags.Behaviors
 					}
 					break;
 
+				case ShopType.RedCrafter58:
+					if (Memory.Scrips.RedCrafter < info.Cost)
+					{
+						return false;
+					}
+					break;
+
 				case ShopType.RedCrafter61:
 					if (Memory.Scrips.RedCrafter < info.Cost)
 					{
@@ -783,6 +790,13 @@ namespace ExBuddy.OrderBotTags.Behaviors
 					break;
 
                 case ShopType.RedGatherer50:
+					if (Memory.Scrips.RedGatherer < info.Cost)
+					{
+						return false;
+					}
+					break;
+
+                case ShopType.RedGatherer58:
 					if (Memory.Scrips.RedGatherer < info.Cost)
 					{
 						return false;

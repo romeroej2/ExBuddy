@@ -44,26 +44,19 @@
                 switch (shopType)
                 {
                     case ShopType.RedCrafter50:
-                        return Scrips.RedCrafter;
-#if !RB_CN
+                        return Scrips.RedCrafter;                        
                     case ShopType.RedCrafter58:
                         return Scrips.RedCrafter;
-#endif
                     case ShopType.RedCrafter61:
                         return Scrips.RedCrafter;
-
                     case ShopType.YellowCrafterItems:
                         return Scrips.YellowCrafter;
-
                     case ShopType.RedGatherer50:
                         return Scrips.RedGatherer;
-#if !RB_CN
                     case ShopType.RedGatherer58:
                         return Scrips.RedGatherer;
-#endif
                     case ShopType.RedGatherer61:
                         return Scrips.RedGatherer;
-
                     case ShopType.YellowGathererItems:
                         return Scrips.YellowGatherer;
                 }
