@@ -2187,7 +2187,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CompetenceV,
                     ShopType = ShopType.RedCrafter50,
                     ItemId = 5703,
-                    Cost = 400,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -2209,7 +2209,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CunningV,
                     ShopType = ShopType.RedCrafter50,
                     ItemId = 5708,
-                    Cost = 400,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -2231,7 +2231,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CommandV,
                     ShopType = ShopType.RedCrafter50,
                     ItemId = 5713,
-                    Cost = 400,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3115,7 +3115,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CompetenceVI - 300,
                     ShopType = ShopType.YellowCrafterItems,
                     ItemId = 18025,
-                    Cost = 1500,
+                    Cost = 500,
                     Yield = 1
                 }
             },
@@ -3126,7 +3126,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CunningVI - 300,
                     ShopType = ShopType.YellowCrafterItems,
                     ItemId = 18026,
-                    Cost = 1500,
+                    Cost = 500,
                     Yield = 1
                 }
             },
@@ -3137,7 +3137,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CommandVI - 300,
                     ShopType = ShopType.YellowCrafterItems,
                     ItemId = 18027,
-                    Cost = 1500,
+                    Cost = 500,
                     Yield = 1
                 }
             },
@@ -3252,7 +3252,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.GuerdonV - 400,
                     ShopType = ShopType.RedGatherer50,
                     ItemId = 5688,
-                    Cost = 400,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3274,7 +3274,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.GuileV - 400,
                     ShopType = ShopType.RedGatherer50,
                     ItemId = 5693,
-                    Cost = 400,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3296,7 +3296,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.GraspV - 400,
                     ShopType = ShopType.RedGatherer50,
                     ItemId = 5698,
-                    Cost = 400,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3949,7 +3949,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.GuerdonVI - 700,
                     ShopType = ShopType.YellowGathererItems,
                     ItemId = 18022,
-                    Cost = 1500,
+                    Cost = 500,
                     Yield = 1
                 }
             },
@@ -3960,7 +3960,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.GuileVI - 700,
                     ShopType = ShopType.YellowGathererItems,
                     ItemId = 18023,
-                    Cost = 1500,
+                    Cost = 500,
                     Yield = 1
                 }
             },
@@ -3971,7 +3971,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.GraspVI - 700,
                     ShopType = ShopType.YellowGathererItems,
                     ItemId = 18024,
-                    Cost = 1500,
+                    Cost = 500,
                     Yield = 1
                 }
             },

@@ -661,7 +661,9 @@ namespace ExBuddy.OrderBotTags.Behaviors
 			    { "Anti-shark Harpoon", 23144 },
 			    { "Coerthan Cold-weather Gear", 23145 },
 			    { "Sui-no-Sato Special", 23146 },
-			    { "Cloud Pearl", 23147 }
+			    { "Cloud Pearl", 23147 },
+			    { "Yanxian Soil", 23220 },
+			    { "Yanxian Verbena", 23221 }
             };
 
 			if (Collectables == null)
