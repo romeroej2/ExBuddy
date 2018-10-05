@@ -561,37 +561,41 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
 
         #region YellowCrafterItems
 
-        KoshuPork = 300,
+        ReunionCheese = 300,
 
-        DzoSirloin = 301,
+        KoshuPork = 301,
 
-        DomanRice = 302,
+        DzoSirloin = 302,
 
-        TeaBrick = 303,
+        DomanRice = 303,
 
-        CrimsonPepper = 304,
+        TeaBrick = 304,
 
-        SecretRecipeBroth = 305,
+        CrimsonPepper = 305,
 
-        HoneydewHoney = 306,
+        RooibosLeaves = 306,
 
-        WoolTopCrafter = 307,
+        SecretRecipeBroth = 307,
 
-        FlannelCrafter = 308,
+        HoneydewHoney = 308,
 
-        NewWorldMacrameCrafter = 309,
+        WoolTopCrafter = 309,
 
-        GyrAbanianAlchemic = 310,
+        FlannelCrafter = 310,
 
-        PellitoryCrafter = 311,
+        NewWorldMacrameCrafter = 311,
 
-        CompetenceVI = 312,
+        GyrAbanianAlchemic = 312,
 
-        CunningVI = 313,
+        PellitoryCrafter = 313,
 
-        CommandVI = 314,
+        CompetenceVI = 314,
 
-        KingcraftDemimateria = 315,
+        CunningVI = 315,
+
+        CommandVI = 316,
+
+        KingcraftDemimateria = 317,
 
         #endregion YellowCrafterItems
 

@@ -2977,6 +2977,17 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
             #region YellowCrafterItems
             
             {
+                ShopItem.ReunionCheese,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.ReunionCheese - 300,
+                    ShopType = ShopType.YellowCrafterItems,
+                    ItemId = 24282,
+                    Cost = 15,
+                    Yield = 1
+                }
+            },
+            {
                 ShopItem.KoshuPork,
                 new ShopItemInfo
                 {
@@ -3027,6 +3038,17 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                     Index = (int) ShopItem.CrimsonPepper - 300,
                     ShopType = ShopType.YellowCrafterItems,
                     ItemId = 21301,
+                    Cost = 15,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.RooibosLeaves,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.RooibosLeaves - 300,
+                    ShopType = ShopType.YellowCrafterItems,
+                    ItemId = 24281,
                     Cost = 15,
                     Yield = 1
                 }
