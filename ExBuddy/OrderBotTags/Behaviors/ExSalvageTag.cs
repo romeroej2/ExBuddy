@@ -31,6 +31,9 @@
 
 		[XmlAttribute("NqOnly")]
 		public bool NqOnly { get; set; }
+		
+		[XmlAttribute("EquipmentCategory")]
+		public ItemUiCategory ItemCategory { get; set; }
 
 		[XmlAttribute("RepairClass")]
 		public ClassJobType RepairClass { get; set; }
@@ -54,6 +57,18 @@
 			if (RepairClass > ClassJobType.Thaumaturge && RepairClass < ClassJobType.Miner)
 			{
 				await SalvageDialog.DesynthesizeByRepairClass(RepairClass, (ushort)MaxWait, IncludeArmory, NqOnly);
+			}
+			
+			if (ItemCategory != null)
+			
+			{
+			foreach(var item in InventoryManager.FilledInventoryAndArmory)
+			{
+			if(item.Item.EquipmentCatagory == ItemCategory)
+			{
+			await SalvageDialog.DesynthesizeByItemId((uint)item.TrueItemId, (ushort)MaxWait, IncludeArmory, NqOnly);
+			}
+				}
 			}
 
 			if (ItemIds != null && ItemIds.Length > 0)
