@@ -328,7 +328,6 @@
 			Vector3 target,
 			ushort zoneid)
 		{
-			// TODO: not sure how much we will have to mess with this, but when I was using it, it was returning true even for Y values in mid air.
 			return Original.CanFullyNavigateFrom(starts, target, zoneid);
 		}
 
