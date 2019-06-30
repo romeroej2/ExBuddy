@@ -42,11 +42,11 @@
 
         private readonly IBeforeGatherGpRegenStrategyLogger logger;
         private readonly CordialStockManager cordialStockManager;
-        #if RB_CN
+#if RB_CN
         protected readonly short gpPerTick;
-        #else
+#else
         protected readonly ushort gpPerTick;
-        #endif
+#endif
 
         protected IGatheringRotation gatherRotation;
         protected GatherStrategy gatherStrategy;
