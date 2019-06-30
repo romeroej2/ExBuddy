@@ -273,7 +273,7 @@
             }
 
             // Execute the wait coroutine
-            this.logger.RegeneratingGp(Convert.ToInt16((this.EffectiveTimeToRegenerate.TotalSeconds)));
+            this.logger.RegeneratingGp(Convert.ToInt32((this.EffectiveTimeToRegenerate.TotalSeconds)));
 
             await Coroutine.Wait(
                 this.EffectiveTimeTillGather,
