@@ -42,7 +42,7 @@ namespace ExBuddy.OrderBotTags.Gather.GatherSpots
 
 			if (result)
 			{
-			    var landed = MovementManager.IsDiving || await CommonTasks.Land();
+			    var landed = MovementManager.IsDiving || await NewLandingTask();
 			    if (landed && Core.Player.IsMounted)
 			        ActionManager.Dismount();
 
@@ -54,6 +54,24 @@ namespace ExBuddy.OrderBotTags.Gather.GatherSpots
 			await Coroutine.Yield();
 
 			return result;
-		}
-	}
+        }
+
+        private async Task<bool> NewLandingTask()
+        {
+            if (!MovementManager.IsFlying) { return true; }
+
+            var _en = "Mounted"; // Works on all Languages.
+            //var _jp = "??"; Don't know Mounted name in JP
+            //var _fr = "Sur une monture";
+            //var _de = "Beritten";
+            //var _cn ="??"; Don't know Mounted name in CN
+
+            // statusoff is persistent thru all versions (CN is unknown).
+            ChatManager.SendChat("/statusoff \"" + _en + "\"");
+
+            while (MovementManager.IsFlying) { await Coroutine.Yield(); }
+
+            return true;
+        }
+    }
 }

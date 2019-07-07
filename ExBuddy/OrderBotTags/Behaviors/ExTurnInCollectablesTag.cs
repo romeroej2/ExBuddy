@@ -662,8 +662,14 @@ namespace ExBuddy.OrderBotTags.Behaviors
 			    { "Coerthan Cold-weather Gear", 23145 },
 			    { "Sui-no-Sato Special", 23146 },
 			    { "Cloud Pearl", 23147 },
-			    { "Yanxian Soil", 23220 },
-			    { "Yanxian Verbena", 23221 }
+                { "Yanxian Soil", 23220 },
+                { "Yanxian Verbena", 23221 },
+                { "Gale Rock", 27805 },
+                { "Solarite", 27806 },
+                { "Shade Quartz", 27807 },
+                { "White Clay", 27808 },
+                { "Sweet Marjoram", 27809 },
+                { "Bog Sage", 27810 }
             };
 
 			if (Collectables == null)
