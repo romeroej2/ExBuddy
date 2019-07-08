@@ -85,6 +85,7 @@ namespace ExBuddy.OrderBotTags.Behaviors
                 parameters.MinHeight = MinHeight;
 
             await CommonTasks.MountUp();
+            await CommonTasks.TakeOff();
 
             Flightor.MoveTo(parameters);
             return true;
