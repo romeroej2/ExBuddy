@@ -100,9 +100,11 @@
 			if (ticks > 10)
 			{
 				tag.Logger.Error("Timed out during collectable preparation");
-			}
+            }
 
-			return true;
+            await Coroutine.Sleep(500);
+
+            return true;
 		}
 
 		public override bool ShouldForceGather(GatheringPointObject node)

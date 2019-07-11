@@ -1004,9 +1004,10 @@
 					}
 
 					await Coroutine.Sleep(200);
-				}
+                }
+                await Coroutine.Sleep(800);
 
-				Poi.Current.Unit.Interact();
+                Poi.Current.Unit.Interact();
 
 				if (await Coroutine.Wait(WindowDelay, () => GatheringManager.WindowOpen))
 				{
