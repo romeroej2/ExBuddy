@@ -306,7 +306,7 @@
   <data name="ExTurnInCollectable_ErrorClassType" xml:space="preserve">
     <value>错误,无法选择道具的职业类别</value>
   </data>
-  <data name="ExTurnInCollectable_FailedPurchaseMorDhona" xml:space="preserve">
+  <data name="ExTurnInCollectable_FailedPurchaseGorRhalgrsReach" xml:space="preserve">
     <value>无法在摩杜纳购买道具 {0} 设置田园郡为目的地.</value>
   </data>
   <data name="ExTurnInCollectable_InteractingTimeout" xml:space="preserve">

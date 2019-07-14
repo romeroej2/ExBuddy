@@ -33,35 +33,25 @@
 
         YellowGathererItems
 #else
-        RedCrafter50,
+        Yellow50,
 
-        RedCrafter58,
+        Yellow58,
 
-        RedCrafter61,
+        Yellow61,
 
-        RedCrafterMasterRecipes,
+        MasterRecipes,
 
-        YellowCrafter,
+        YellowGear,
 
-        YellowCrafterII,
+        YellowGearII,
 
-        YellowCrafterAugmentation,
+        YellowAugmentation,
 
-        YellowCrafterItems,
+        Yellow70,
 
-        RedGatherer50,
+        WhiteGear,
 
-        RedGatherer58,
-
-        RedGatherer61,
-
-        YellowGatherer,
-
-        YellowGathererII,
-
-        YellowGathererAugmentation,
-
-        YellowGathererItems
+        White80,
 #endif
     }
 }

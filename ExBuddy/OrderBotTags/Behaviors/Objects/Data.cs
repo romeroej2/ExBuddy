@@ -10,6 +10,28 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
     {
         public static readonly Dictionary<Locations, IList<INpc>> NpcMap = new Dictionary<Locations, IList<INpc>>
         {
+#if !RB_CN
+            {
+                Locations.Eulmore,
+                new INpc[]
+                {
+                    new MasterPieceSupply
+                    {
+                        AetheryteId = 134,
+                        ZoneId = 820,
+                        Location = new Vector3("20.03503, 82.05, -19.66895"),
+                        NpcId = 1027542
+                    },
+                    new ShopExchangeCurrency
+                    {
+                        AetheryteId = 134,
+                        ZoneId = 820,
+                        Location = new Vector3("17.62415, 82.05, -22.2019"),
+                        NpcId = 1027541
+                    }
+                }
+            },
+#endif
             {
                 Locations.RhalgrsReach,
                 new INpc[]
@@ -103,7 +125,7 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
         public static readonly Dictionary<ShopItem, ShopItemInfo> ShopItemMap = new Dictionary<ShopItem, ShopItemInfo>
         {
 #if RB_CN
-            #region RedCrafter50
+#region RedCrafter50
 
             {
                 ShopItem.SoulOfTheCrafter,
@@ -282,9 +304,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion RedCrafter50
+#endregion RedCrafter50
             
-            #region RedCrafter58
+#region RedCrafter58
 
             {
                 ShopItem.BlueCrafterToken,
@@ -782,9 +804,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion RedCrafter58
+#endregion RedCrafter58
 
-            #region RedCrafter61
+#region RedCrafter61
 
             {
                 ShopItem.DomanIronHalfheartSaw,
@@ -1018,9 +1040,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion RedCrafter61
+#endregion RedCrafter61
 
-            #region YellowCrafterItems
+#region YellowCrafterItems
             
             {
                 ShopItem.ReunionCheese,
@@ -1221,9 +1243,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion YellowCrafterItems
+#endregion YellowCrafterItems
 
-            #region RedGatherer50
+#region RedGatherer50
 
             {
                 ShopItem.HiCordial,
@@ -1369,9 +1391,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion RedGatherer50
+#endregion RedGatherer50
             
-            #region RedGatherer58
+#region RedGatherer58
 
             {
                 ShopItem.BlueGatherToken,
@@ -1693,9 +1715,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion RedGatherer58
+#endregion RedGatherer58
 
-            #region RedGatherer61
+#region RedGatherer61
 
             {
                 ShopItem.FolkloreGatherToken,
@@ -1852,9 +1874,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             },
 
-            #endregion RedGatherer61
+#endregion RedGatherer61
 
-            #region YellowGathererItems
+#region YellowGathererItems
             
             {
                 ShopItem.WoolTopGatherer,
@@ -2077,18 +2099,20 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 }
             }
 
-            #endregion YellowGathererItems
+#endregion YellowGathererItems
 #else
-            #region RedCrafter50
+
+            #region YellowCrafter50
 
             {
                 ShopItem.SoulOfTheCrafter,
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.SoulOfTheCrafter,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 10336,
-                    Cost = 480,
+                    Cost = 400,
                     Yield = 1
                 }
             },
@@ -2097,7 +2121,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CommercialEngineeringManual,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12667,
                     Cost = 30,
                     Yield = 1
@@ -2108,7 +2133,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CrpDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12659,
                     Cost = 15,
                     Yield = 1
@@ -2119,7 +2145,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.BsmDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12660,
                     Cost = 15,
                     Yield = 1
@@ -2130,7 +2157,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.ArmDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12661,
                     Cost = 15,
                     Yield = 1
@@ -2141,7 +2169,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.GsmDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12662,
                     Cost = 15,
                     Yield = 1
@@ -2152,7 +2181,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.LtwDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12663,
                     Cost = 15,
                     Yield = 1
@@ -2163,7 +2193,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.WvrDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12664,
                     Cost = 15,
                     Yield = 1
@@ -2174,7 +2205,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.AlcDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12665,
                     Cost = 15,
                     Yield = 1
@@ -2185,7 +2217,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CulDelineation,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12666,
                     Cost = 15,
                     Yield = 1
@@ -2196,7 +2229,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CompetenceIV,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5702,
                     Cost = 25,
                     Yield = 1
@@ -2207,7 +2241,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CompetenceV,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5703,
                     Cost = 200,
                     Yield = 1
@@ -2218,7 +2253,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CunningIV,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5707,
                     Cost = 25,
                     Yield = 1
@@ -2229,7 +2265,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CunningV,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5708,
                     Cost = 200,
                     Yield = 1
@@ -2240,7 +2277,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CommandIV,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5712,
                     Cost = 25,
                     Yield = 1
@@ -2251,23 +2289,37 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.CommandV,
-                    ShopType = ShopType.RedCrafter50,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5713,
                     Cost = 200,
                     Yield = 1
                 }
             },
+            {
+                ShopItem.OnHighOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.OnHighOrchestrionRoll,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow50,
+                    ItemId = 21281,
+                    Cost = 400,
+                    Yield = 1
+                }
+            },
 
-            #endregion RedCrafter50
-            
-            #region RedCrafter58
+            #endregion YellowCrafter50
+
+            #region YellowCrafter58
 
             {
                 ShopItem.BlueCrafterToken,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.BlueCrafterToken - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.BlueCrafterToken - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12839,
                     Cost = 25,
                     Yield = 1
@@ -2277,8 +2329,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GoblinCup,
                 new ShopItemInfo
                 {
-                    Index = 100 + (int) ShopItem.GoblinCup - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = 100 + (int) ShopItem.GoblinCup - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14104,
                     Cost = 25,
                     Yield = 1
@@ -2288,8 +2341,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.MoonbeamSilk,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.MoonbeamSilk - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.MoonbeamSilk - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12934,
                     Cost = 50,
                     Yield = 5
@@ -2299,8 +2353,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.MoonbeamSilkHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.MoonbeamSilkHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.MoonbeamSilkHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12934,
                     Cost = 75,
                     Yield = 5
@@ -2310,8 +2365,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SkyspringWater,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SkyspringWater - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.SkyspringWater - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12633,
                     Cost = 50,
                     Yield = 3
@@ -2321,8 +2377,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SkyspringWaterHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SkyspringWaterHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.SkyspringWaterHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12633,
                     Cost = 75,
                     Yield = 3
@@ -2332,8 +2389,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DryadSap,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DryadSap - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.DryadSap - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12933,
                     Cost = 50,
                     Yield = 5
@@ -2343,8 +2401,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DryadSapHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DryadSapHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.DryadSapHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12933,
                     Cost = 75,
                     Yield = 5
@@ -2354,8 +2413,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.OdorlessAnimalFat,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.OdorlessAnimalFat - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.OdorlessAnimalFat - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12935,
                     Cost = 50,
                     Yield = 5
@@ -2365,8 +2425,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.OdorlessAnimalFatHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.OdorlessAnimalFatHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.OdorlessAnimalFatHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12935,
                     Cost = 75,
                     Yield = 5
@@ -2376,8 +2437,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PurifiedCoke,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PurifiedCoke - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.PurifiedCoke - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12931,
                     Cost = 50,
                     Yield = 5
@@ -2387,8 +2449,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PurifiedCokeHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PurifiedCokeHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.PurifiedCokeHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12931,
                     Cost = 75,
                     Yield = 5
@@ -2398,8 +2461,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.Raziqcoat,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.Raziqcoat - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.Raziqcoat - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12932,
                     Cost = 50,
                     Yield = 5
@@ -2409,8 +2473,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RaziqcoatHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RaziqcoatHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.RaziqcoatHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12932,
                     Cost = 75,
                     Yield = 5
@@ -2420,8 +2485,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SweetCreamMilk,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SweetCreamMilk - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.SweetCreamMilk - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 16734,
                     Cost = 8,
                     Yield = 1
@@ -2431,8 +2497,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SweetCreamMilkHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SweetCreamMilkHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.SweetCreamMilkHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 16734,
                     Cost = 20,
                     Yield = 1
@@ -2442,8 +2509,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.StoneCheese,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.StoneCheese - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.StoneCheese - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 16735,
                     Cost = 8,
                     Yield = 1
@@ -2453,8 +2521,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.StoneCheeseHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.StoneCheeseHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.StoneCheeseHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 16735,
                     Cost = 20,
                     Yield = 1
@@ -2464,8 +2533,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.HeavensEgg,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.HeavensEgg - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.HeavensEgg - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 15652,
                     Cost = 8,
                     Yield = 1
@@ -2475,8 +2545,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.HeavensEggHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.HeavensEggHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.HeavensEggHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 15652,
                     Cost = 20,
                     Yield = 1
@@ -2486,8 +2557,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CarbonFiber,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CarbonFiber - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.CarbonFiber - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 5339,
                     Cost = 25,
                     Yield = 1
@@ -2497,8 +2569,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CarbonFiberHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CarbonFiberHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.CarbonFiberHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 5339,
                     Cost = 62,
                     Yield = 1
@@ -2508,8 +2581,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.LoaghtanFilet,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.LoaghtanFilet - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.LoaghtanFilet - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14145,
                     Cost = 5,
                     Yield = 1
@@ -2519,8 +2593,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.LoaghtanFiletHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.LoaghtanFiletHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.LoaghtanFiletHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14145,
                     Cost = 12,
                     Yield = 1
@@ -2530,8 +2605,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GoldenApple,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GoldenApple - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.GoldenApple - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14142,
                     Cost = 5,
                     Yield = 1
@@ -2541,8 +2617,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GoldenAppleHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GoldenAppleHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.GoldenAppleHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14142,
                     Cost = 12,
                     Yield = 1
@@ -2552,8 +2629,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SolsticeGarlic,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SolsticeGarlic - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.SolsticeGarlic - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14143,
                     Cost = 5,
                     Yield = 1
@@ -2563,8 +2641,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SolsticeGarlicHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SolsticeGarlicHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.SolsticeGarlicHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14143,
                     Cost = 12,
                     Yield = 1
@@ -2574,8 +2653,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.MatureOliveOil,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.MatureOliveOil - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.MatureOliveOil - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14144,
                     Cost = 5,
                     Yield = 1
@@ -2585,8 +2665,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.MatureOliveOilHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.MatureOliveOilHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.MatureOliveOilHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14144,
                     Cost = 12,
                     Yield = 1
@@ -2596,8 +2677,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PowderedMermanHorn,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PowderedMermanHorn - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.PowderedMermanHorn - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14937,
                     Cost = 6,
                     Yield = 1
@@ -2607,8 +2689,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PowderedMermanHornHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PowderedMermanHornHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.PowderedMermanHornHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14937,
                     Cost = 15,
                     Yield = 1
@@ -2618,8 +2701,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.HeavenlyKukuruPowder,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.HeavenlyKukuruPowder - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.HeavenlyKukuruPowder - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12886,
                     Cost = 8,
                     Yield = 1
@@ -2629,8 +2713,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.HeavenlyKukuruPowderHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.HeavenlyKukuruPowderHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.HeavenlyKukuruPowderHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12886,
                     Cost = 20,
                     Yield = 1
@@ -2640,8 +2725,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.BouillonCube,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.BouillonCube - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.BouillonCube - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12905,
                     Cost = 4,
                     Yield = 1
@@ -2651,8 +2737,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.BouillonCubeHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.BouillonCubeHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.BouillonCubeHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12905,
                     Cost = 10,
                     Yield = 1
@@ -2662,8 +2749,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.OrientalSoySauce,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.OrientalSoySauce - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.OrientalSoySauce - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12906,
                     Cost = 15,
                     Yield = 1
@@ -2673,8 +2761,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.OrientalSoySauceHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.OrientalSoySauceHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.OrientalSoySauceHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12906,
                     Cost = 37,
                     Yield = 1
@@ -2684,8 +2773,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.OrientalMisoPaste,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.OrientalMisoPaste - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.OrientalMisoPaste - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12907,
                     Cost = 15,
                     Yield = 1
@@ -2695,8 +2785,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.OrientalMisoPasteHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.OrientalMisoPasteHq - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.OrientalMisoPasteHq - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12907,
                     Cost = 37,
                     Yield = 1
@@ -2706,8 +2797,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.AdeptsHat,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.AdeptsHat - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.AdeptsHat - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11958,
                     Cost = 60,
                     Yield = 1
@@ -2717,8 +2809,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.AdeptsGown,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.AdeptsGown - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.AdeptsGown - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11963,
                     Cost = 135,
                     Yield = 1
@@ -2728,8 +2821,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.AdeptsGloves,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.AdeptsGloves - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.AdeptsGloves - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11968,
                     Cost = 60,
                     Yield = 1
@@ -2739,8 +2833,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.AdeptsHose,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.AdeptsHose - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.AdeptsHose - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11976,
                     Cost = 52,
                     Yield = 1
@@ -2750,26 +2845,28 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.AdeptsThighboots,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.AdeptsThighboots - 100,
-                    ShopType = ShopType.RedCrafter58,
+                    Index = (int) ShopItem.AdeptsThighboots - 200,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11981,
                     Cost = 52,
                     Yield = 1
                 }
             },
 
-            #endregion RedCrafter58
+            #endregion YellowCrafter58
 
-            #region RedCrafter61
+            #region YellowCrafter61
 
             {
                 ShopItem.DomanIronHalfheartSaw,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronHalfheartSaw - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronHalfheartSaw - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19527,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2777,10 +2874,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronClawHammer,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronClawHammer - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronClawHammer - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19538,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2788,10 +2886,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronLumpHammer,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronLumpHammer - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronLumpHammer - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19528,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2799,10 +2898,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronFile,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronFile - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronFile - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19539,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2810,10 +2910,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronRaisingHammer,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronRaisingHammer - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronRaisingHammer - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19529,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2821,10 +2922,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronPliers,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronPliers - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronPliers - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19540,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2832,10 +2934,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DuriumTextureHammer,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DuriumTextureHammer - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DuriumTextureHammer - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19530,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2843,10 +2946,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SlateGrindingWheel,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SlateGrindingWheel - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.SlateGrindingWheel - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19541,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2854,10 +2958,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronHeadKnife,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronHeadKnife - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronHeadKnife - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19531,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2865,10 +2970,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronAwl,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronAwl - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronAwl - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19542,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2876,10 +2982,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DzoHornNeedle,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DzoHornNeedle - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DzoHornNeedle - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19532,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2887,10 +2994,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PineSpinningWheel,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PineSpinningWheel - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.PineSpinningWheel - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19543,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2898,10 +3006,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronAlembic,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronAlembic - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronAlembic - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19533,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2909,10 +3018,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronMortar,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronMortar - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronMortar - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19544,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2920,10 +3030,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronFrypan,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronFrypan - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronFrypan - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19534,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2931,10 +3042,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronCulinaryKnife,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronCulinaryKnife - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DomanIronCulinaryKnife - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19545,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2942,10 +3054,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KudzuCapofCrafting,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KudzuCapofCrafting - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.KudzuCapofCrafting - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19632,
-                    Cost = 180,
+                    Cost = 110,
                     Yield = 1
                 }
             },
@@ -2953,10 +3066,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KudzuRobeofCrafting,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KudzuRobeofCrafting - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.KudzuRobeofCrafting - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19633,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -2964,10 +3078,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DuriumChaplets,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DuriumChaplets - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.DuriumChaplets - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19634,
-                    Cost = 180,
+                    Cost = 110,
                     Yield = 1
                 }
             },
@@ -2975,10 +3090,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KudzuCulottesofCrafting,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KudzuCulottesofCrafting - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.KudzuCulottesofCrafting - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19635,
-                    Cost = 160,
+                    Cost = 100,
                     Yield = 1
                 }
             },
@@ -2986,26 +3102,28 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TigerskinBootsofCrafting,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TigerskinBootsofCrafting - 200,
-                    ShopType = ShopType.RedCrafter61,
+                    Index = (int) ShopItem.TigerskinBootsofCrafting - 400,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19636,
-                    Cost = 160,
+                    Cost = 100,
                     Yield = 1
                 }
             },
 
-            #endregion RedCrafter61
+            #endregion YellowCrafter61
 
-            #region YellowCrafterItems
-            
+            #region YellowCrafter70
+
             {
                 ShopItem.ReunionCheese,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.ReunionCheese - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.ReunionCheese - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 24282,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3013,10 +3131,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KoshuPork,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KoshuPork - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.KoshuPork - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 19876,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3024,10 +3143,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DzoSirloin,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DzoSirloin - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.DzoSirloin - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 22438,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3035,10 +3155,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanRice,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanRice - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.DomanRice - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 22439,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3046,10 +3167,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TeaBrick,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TeaBrick - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.TeaBrick - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 19840,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3057,10 +3179,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CrimsonPepper,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CrimsonPepper - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.CrimsonPepper - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 21301,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3068,10 +3191,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RooibosLeaves,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RooibosLeaves - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.RooibosLeaves - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 24281,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3079,10 +3203,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SecretRecipeBroth,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SecretRecipeBroth - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.SecretRecipeBroth - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 21089,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3090,10 +3215,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.HoneydewHoney,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.HoneydewHoney - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.HoneydewHoney - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 22446,
-                    Cost = 15,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3101,10 +3227,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.WoolTopCrafter,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.WoolTopCrafter - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.WoolTopCrafter - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 16906,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3112,10 +3239,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.FlannelCrafter,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.FlannelCrafter - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.FlannelCrafter - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 17574,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3123,10 +3251,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.NewWorldMacrameCrafter,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.NewWorldMacrameCrafter - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.NewWorldMacrameCrafter - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 16907,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3134,10 +3263,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GyrAbanianAlchemic,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GyrAbanianAlchemic - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.GyrAbanianAlchemic - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 21082,
-                    Cost = 250,
+                    Cost = 100,
                     Yield = 1
                 }
             },
@@ -3145,10 +3275,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PellitoryCrafter,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PellitoryCrafter - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.PellitoryCrafter - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 15945,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3156,10 +3287,23 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CompetenceVI,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CompetenceVI - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.CompetenceVI - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 18025,
-                    Cost = 500,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.CompetenceVII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CompetenceVII - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25194,
+                    Cost = 250,
                     Yield = 1
                 }
             },
@@ -3167,10 +3311,23 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CunningVI,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CunningVI - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.CunningVI - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 18026,
-                    Cost = 500,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.CunningVII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CunningVII - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25195,
+                    Cost = 250,
                     Yield = 1
                 }
             },
@@ -3178,10 +3335,71 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CommandVI,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CommandVI - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.CommandVI - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 18027,
-                    Cost = 500,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.CommandVII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CommandVII - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25196,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.RevisedEngineeringManual,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.RevisedEngineeringManual - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 26554,
+                    Cost = 300,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.PastryCupboard,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.PastryCupboard - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 24518,
+                    Cost = 50,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.FabricRack,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.FabricRack - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 24520,
+                    Cost = 50,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.PotionRack,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.PotionRack - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 24521,
+                    Cost = 50,
                     Yield = 1
                 }
             },
@@ -3189,24 +3407,127 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KingcraftDemimateria,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KingcraftDemimateria - 300,
-                    ShopType = ShopType.YellowCrafterItems,
+                    Index = (int) ShopItem.KingcraftDemimateria - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 23181,
-                    Cost = 50,
+                    Cost = 25,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AfterglowOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AfterglowOrchestrionRoll - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25062,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.HarmonyOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.HarmonyOrchestrionRoll - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25066,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.MetalWorkLantern,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.MetalWorkLantern - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27303,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.WoodenWorkLantern,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.WoodenWorkLantern - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27304,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AlchemicalLantern,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AlchemicalLantern - 600,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27305,
+                    Cost = 100,
                     Yield = 1
                 }
             },
 
-            #endregion YellowCrafterItems
+            #endregion YellowCrafter70
 
-            #region RedGatherer50
+            #region WhiteCrafter80
+
+            {
+                ShopItem.CompetenceVIII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CompetenceVIII - 800,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.White80,
+                    ItemId = 26735,
+                    Cost = 500,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.CunningVIII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CunningVIII - 800,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.White80,
+                    ItemId = 26736,
+                    Cost = 500,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.CommandVIII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CommandVIII - 800,
+                    ShopJob = ShopJob.Crafter,
+                    ShopType = ShopType.White80,
+                    ItemId = 26737,
+                    Cost = 500,
+                    Yield = 1
+                }
+            },
+
+            #endregion WhiteCrafter80
+
+            #region YellowGatherer50
 
             {
                 ShopItem.HiCordial,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.HiCordial - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.HiCordial - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12669,
                     Cost = 20,
                     Yield = 1
@@ -3216,8 +3537,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CommercialSurvivalManual,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CommercialSurvivalManual - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.CommercialSurvivalManual - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12668,
                     Cost = 30,
                     Yield = 1
@@ -3227,8 +3549,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.BruteLeech,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.BruteLeech - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.BruteLeech - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12711,
                     Cost = 1,
                     Yield = 1
@@ -3238,8 +3561,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RedBalloon,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RedBalloon - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.RedBalloon - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12708,
                     Cost = 1,
                     Yield = 1
@@ -3249,8 +3573,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GiantCraneFly,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GiantCraneFly - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GiantCraneFly - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12712,
                     Cost = 1,
                     Yield = 1
@@ -3260,8 +3585,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.MagmaWorm,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.MagmaWorm - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.MagmaWorm - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12709,
                     Cost = 1,
                     Yield = 1
@@ -3271,8 +3597,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.FiendWorm,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.FiendWorm - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.FiendWorm - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 12710,
                     Cost = 1,
                     Yield = 1
@@ -3282,8 +3609,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GuerdonIV,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GuerdonIV - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GuerdonIV - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5687,
                     Cost = 25,
                     Yield = 1
@@ -3293,8 +3621,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GuerdonV,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GuerdonV - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GuerdonV - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5688,
                     Cost = 200,
                     Yield = 1
@@ -3304,8 +3633,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GuileIV,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GuileIV - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GuileIV - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5692,
                     Cost = 25,
                     Yield = 1
@@ -3315,8 +3645,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GuileV,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GuileV - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GuileV - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5693,
                     Cost = 200,
                     Yield = 1
@@ -3326,8 +3657,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GraspIV,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GraspIV - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GraspIV - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5697,
                     Cost = 25,
                     Yield = 1
@@ -3337,24 +3669,50 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GraspV,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GraspV - 400,
-                    ShopType = ShopType.RedGatherer50,
+                    Index = (int) ShopItem.GraspV - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
                     ItemId = 5698,
                     Cost = 200,
                     Yield = 1
                 }
             },
+            {
+                ShopItem.GardenGravel,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GardenGravel - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
+                    ItemId = 23898,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.SongsofSaltandSufferingOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.SongsofSaltandSufferingOrchestrionRoll - 100,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow50,
+                    ItemId = 21282,
+                    Cost = 400,
+                    Yield = 1
+                }
+            },
 
-            #endregion RedGatherer50
-            
-            #region RedGatherer58
+            #endregion YellowGatherer50
+
+            #region YellowGatherer58
 
             {
                 ShopItem.BlueGatherToken,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.BlueGatherToken - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.BlueGatherToken - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12841,
                     Cost = 25,
                     Yield = 1
@@ -3364,8 +3722,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GoblinDice,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GoblinDice - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.GoblinDice - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 14105,
                     Cost = 25,
                     Yield = 1
@@ -3375,8 +3734,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TrailblazersScarf,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TrailblazersScarf - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.TrailblazersScarf - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11986,
                     Cost = 100,
                     Yield = 1
@@ -3386,8 +3746,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TrailblazersVest,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TrailblazersVest - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.TrailblazersVest - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11991,
                     Cost = 135,
                     Yield = 1
@@ -3397,8 +3758,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TrailblazersWristguards,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TrailblazersWristguards - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.TrailblazersWristguards - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 11996,
                     Cost = 75,
                     Yield = 1
@@ -3408,8 +3770,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TrailblazersSlops,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TrailblazersSlops - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.TrailblazersSlops - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12004,
                     Cost = 50,
                     Yield = 1
@@ -3419,8 +3782,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TrailblazersShoes,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TrailblazersShoes - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.TrailblazersShoes - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 12009,
                     Cost = 50,
                     Yield = 1
@@ -3430,8 +3794,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CrownTrout,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CrownTrout - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.CrownTrout - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13737,
                     Cost = 5,
                     Yield = 1
@@ -3441,8 +3806,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CrownTroutHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CrownTroutHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.CrownTroutHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13737,
                     Cost = 12,
                     Yield = 1
@@ -3452,8 +3818,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RetributionStaff,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RetributionStaff - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.RetributionStaff - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13738,
                     Cost = 10,
                     Yield = 1
@@ -3463,8 +3830,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RetributionStaffHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RetributionStaffHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.RetributionStaffHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13738,
                     Cost = 25,
                     Yield = 1
@@ -3474,8 +3842,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.ThiefBetta,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.ThiefBetta - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.ThiefBetta - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13739,
                     Cost = 5,
                     Yield = 1
@@ -3485,8 +3854,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.ThiefBettaHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.ThiefBettaHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.ThiefBettaHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13739,
                     Cost = 12,
                     Yield = 1
@@ -3496,8 +3866,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GoldsmithCrab,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GoldsmithCrab - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.GoldsmithCrab - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13740,
                     Cost = 5,
                     Yield = 1
@@ -3507,8 +3878,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GoldsmithCrabHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GoldsmithCrabHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.GoldsmithCrabHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13740,
                     Cost = 12,
                     Yield = 1
@@ -3518,8 +3890,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.Pterodactyl,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.Pterodactyl - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.Pterodactyl - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13733,
                     Cost = 20,
                     Yield = 1
@@ -3529,8 +3902,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PterodactylHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PterodactylHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.PterodactylHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13733,
                     Cost = 50,
                     Yield = 1
@@ -3540,8 +3914,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.Eurhinosaur,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.Eurhinosaur - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.Eurhinosaur - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13734,
                     Cost = 5,
                     Yield = 1
@@ -3551,8 +3926,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.EurhinosaurHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.EurhinosaurHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.EurhinosaurHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13734,
                     Cost = 12,
                     Yield = 1
@@ -3562,8 +3938,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GemMarimo,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GemMarimo - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.GemMarimo - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13736,
                     Cost = 10,
                     Yield = 1
@@ -3573,8 +3950,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.GemMarimoHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.GemMarimoHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.GemMarimoHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13736,
                     Cost = 25,
                     Yield = 1
@@ -3584,8 +3962,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.Sphalerite,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.Sphalerite - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.Sphalerite - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13750,
                     Cost = 10,
                     Yield = 1
@@ -3595,8 +3974,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SphaleriteHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SphaleriteHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.SphaleriteHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13750,
                     Cost = 25,
                     Yield = 1
@@ -3606,8 +3986,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.WindSilk,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.WindSilk - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.WindSilk - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13744,
                     Cost = 75,
                     Yield = 1
@@ -3617,8 +3998,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CloudCottonBoll,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CloudCottonBoll - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.CloudCottonBoll - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13753,
                     Cost = 10,
                     Yield = 1
@@ -3628,8 +4010,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.CloudCottonBollHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.CloudCottonBollHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.CloudCottonBollHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13753,
                     Cost = 25,
                     Yield = 1
@@ -3639,8 +4022,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DinosaurLeather,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DinosaurLeather - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.DinosaurLeather - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13745,
                     Cost = 75,
                     Yield = 1
@@ -3650,8 +4034,9 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RoyalMistletoe,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RoyalMistletoe - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.RoyalMistletoe - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13752,
                     Cost = 10,
                     Yield = 1
@@ -3661,26 +4046,28 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.RoyalMistletoeHq,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.RoyalMistletoeHq - 500,
-                    ShopType = ShopType.RedGatherer58,
+                    Index = (int) ShopItem.RoyalMistletoeHq - 300,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow58,
                     ItemId = 13752,
                     Cost = 25,
                     Yield = 1
                 }
             },
 
-            #endregion RedGatherer58
+            #endregion YellowGatherer58
 
-            #region RedGatherer61
+            #region YellowGatherer61
 
             {
                 ShopItem.FolkloreGatherToken,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.FolkloreGatherToken - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.FolkloreGatherToken - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 20260,
-                    Cost = 50,
+                    Cost = 5,
                     Yield = 1
                 }
             },
@@ -3688,10 +4075,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronPickaxe,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronPickaxe - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.DomanIronPickaxe - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19535,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -3699,10 +4087,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronSledgehammer,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronSledgehammer - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.DomanIronSledgehammer - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19546,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -3710,10 +4099,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronHatchet,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronHatchet - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.DomanIronHatchet - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19536,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -3721,10 +4111,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.DomanIronScythe,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.DomanIronScythe - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.DomanIronScythe - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19547,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -3732,10 +4123,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.PineFishingRod,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.PineFishingRod - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.PineFishingRod - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19537,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -3743,10 +4135,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TigerskinCapofGathering,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TigerskinCapofGathering - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.TigerskinCapofGathering - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19637,
-                    Cost = 300,
+                    Cost = 180,
                     Yield = 1
                 }
             },
@@ -3754,10 +4147,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KudzuCoatofGathering,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KudzuCoatofGathering - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.KudzuCoatofGathering - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19638,
-                    Cost = 400,
+                    Cost = 240,
                     Yield = 1
                 }
             },
@@ -3765,10 +4159,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TigerskinFingerlessGlovesofGathering,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TigerskinFingerlessGlovesofGathering - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.TigerskinFingerlessGlovesofGathering - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19639,
-                    Cost = 200,
+                    Cost = 120,
                     Yield = 1
                 }
             },
@@ -3776,10 +4171,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.KudzuCulottesofGathering,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.KudzuCulottesofGathering - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.KudzuCulottesofGathering - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19640,
-                    Cost = 150,
+                    Cost = 90,
                     Yield = 1
                 }
             },
@@ -3787,10 +4183,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.TigerskinBootsofGathering,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.TigerskinBootsofGathering - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.TigerskinBootsofGathering - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 19641,
-                    Cost = 150,
+                    Cost = 90,
                     Yield = 1
                 }
             },
@@ -3798,10 +4195,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.Silkworm,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.Silkworm - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.Silkworm - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 20616,
-                    Cost = 5,
+                    Cost = 3,
                     Yield = 1
                 }
             },
@@ -3809,10 +4207,11 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.BreamLure,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.BreamLure - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.BreamLure - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 20618,
-                    Cost = 50,
+                    Cost = 30,
                     Yield = 1
                 }
             },
@@ -3820,26 +4219,28 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 ShopItem.SuspendingMinnow,
                 new ShopItemInfo
                 {
-                    Index = (int) ShopItem.SuspendingMinnow - 600,
-                    ShopType = ShopType.RedGatherer61,
+                    Index = (int) ShopItem.SuspendingMinnow - 500,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow61,
                     ItemId = 20619,
-                    Cost = 50,
+                    Cost = 30,
                     Yield = 1
                 }
             },
 
-            #endregion RedGatherer61
+            #endregion YellowGatherer61
 
-            #region YellowGathererItems
-            
+            #region YellowGatherer70
+
             {
                 ShopItem.WoolTopGatherer,
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.WoolTopGatherer - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 16906,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3848,9 +4249,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.FlannelGatherer - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 17574,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3859,9 +4261,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.NewWorldMacrameGatherer - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 16907,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3870,9 +4273,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.PellitoryGatherer - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 15945,
-                    Cost = 500,
+                    Cost = 200,
                     Yield = 1
                 }
             },
@@ -3881,9 +4285,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.DusklightAethersand - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20013,
-                    Cost = 60,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3892,9 +4297,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.DusklightAethersandHq - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20013,
-                    Cost = 100,
+                    Cost = 20,
                     Yield = 1
                 }
             },
@@ -3903,9 +4309,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.DawnlightAethersand - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20014,
-                    Cost = 60,
+                    Cost = 10,
                     Yield = 1
                 }
             },
@@ -3914,9 +4321,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.DawnlightAethersandHq - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20014,
-                    Cost = 100,
+                    Cost = 20,
                     Yield = 1
                 }
             },
@@ -3925,9 +4333,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.EverbrightAethersand - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20015,
-                    Cost = 85,
+                    Cost = 15,
                     Yield = 1
                 }
             },
@@ -3936,9 +4345,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.EverbrightAethersandHq - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20015,
-                    Cost = 125,
+                    Cost = 30,
                     Yield = 1
                 }
             },
@@ -3947,9 +4357,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.EverbornAethersand - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20016,
-                    Cost = 85,
+                    Cost = 15,
                     Yield = 1
                 }
             },
@@ -3958,9 +4369,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.EverbornAethersandHq - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20016,
-                    Cost = 125,
+                    Cost = 30,
                     Yield = 1
                 }
             },
@@ -3969,9 +4381,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.EverdeepAethersand - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20017,
-                    Cost = 85,
+                    Cost = 15,
                     Yield = 1
                 }
             },
@@ -3980,9 +4393,10 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.EverdeepAethersandHq - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20017,
-                    Cost = 125,
+                    Cost = 30,
                     Yield = 1
                 }
             },
@@ -3991,9 +4405,22 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.GuerdonVI - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 18022,
-                    Cost = 500,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.GuerdonVII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GuerdonVII - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25191,
+                    Cost = 250,
                     Yield = 1
                 }
             },
@@ -4002,9 +4429,22 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.GuileVI - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 18023,
-                    Cost = 500,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.GuileVII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GuileVII - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25192,
+                    Cost = 250,
                     Yield = 1
                 }
             },
@@ -4013,9 +4453,46 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.GraspVI - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 18024,
-                    Cost = 500,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.GraspVII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GraspVII - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25193,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.RegionalFolkloreTradeToken,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.RegionalFolkloreTradeToken - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27985,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.RevisedSurvivalManual,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.RevisedSurvivalManual - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 26553,
+                    Cost = 300,
                     Yield = 1
                 }
             },
@@ -4024,9 +4501,130 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.ChocoboRaincoat - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 21925,
                     Cost = 1650,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.FruitStall,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.FruitStall - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 24516,
+                    Cost = 50,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.VegetableStall,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.VegetableStall - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 24517,
+                    Cost = 50,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.MineralDisplay,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.MineralDisplay - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 24519,
+                    Cost = 50,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.CarpetofFlowers,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.CarpetofFlowers - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27298,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.HopeForgottenOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.HopeForgottenOrchestrionRoll - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25063,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.TheStoneRemembersOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.TheStoneRemembersOrchestrionRoll - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25064,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.OldWoundsOrchestrionRoll,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.OldWoundsOrchestrionRoll - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 25065,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.RobberBall,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.RobberBall - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27587,
+                    Cost = 5,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.JerkedOvim,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.JerkedOvim - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27586,
+                    Cost = 5,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.ShortBillMinnow,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.ShortBillMinnow - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27588,
+                    Cost = 50,
                     Yield = 1
                 }
             },
@@ -4035,7 +4633,8 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.BlueBobbit - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20676,
                     Cost = 3,
                     Yield = 1
@@ -4046,14 +4645,225 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
                 new ShopItemInfo
                 {
                     Index = (int) ShopItem.StoneflyLarva - 700,
-                    ShopType = ShopType.YellowGathererItems,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
                     ItemId = 20675,
                     Cost = 3,
                     Yield = 1
                 }
-            }
+            },
+            {
+                ShopItem.Firebloom,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.Firebloom - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27316,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.SeastoneBrazier,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.SeastoneBrazier - 700,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.Yellow70,
+                    ItemId = 27317,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
 
-            #endregion YellowGathererItems
+            #endregion YellowGatherer70
+
+            #region WhiteGatherer80
+            
+            {
+                ShopItem.ChiaroglowAethersand,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.ChiaroglowAethersand - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27811,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.ChiaroglowAethersandHq,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.ChiaroglowAethersandHq - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27811,
+                    Cost = 130,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.ScuroglowAethersand,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.ScuroglowAethersand - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27812,
+                    Cost = 100,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.ScuroglowAethersandHq,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.ScuroglowAethersandHq - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27812,
+                    Cost = 130,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AgedeepAethersand,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AgedeepAethersand - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27813,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AgedeepAethersandHq,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AgedeepAethersandHq - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27813,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AgewoodAethersand,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AgewoodAethersand - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27814,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AgewoodAethersandHq,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AgewoodAethersandHq - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27814,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AgeflawAethersand,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AgeflawAethersand - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27815,
+                    Cost = 200,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.AgeflawAethersandHq,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.AgeflawAethersandHq - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27815,
+                    Cost = 250,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.GuerdonVIII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GuerdonVIII - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 26732,
+                    Cost = 500,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.GuileVIII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GuileVIII - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 26733,
+                    Cost = 500,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.GraspVIII,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.GraspVIII - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 26734,
+                    Cost = 500,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.SquidStrip,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.SquidStrip - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27590,
+                    Cost = 5,
+                    Yield = 1
+                }
+            },
+            {
+                ShopItem.Baitbugs,
+                new ShopItemInfo
+                {
+                    Index = (int) ShopItem.Baitbugs - 900,
+                    ShopJob = ShopJob.Gatherer,
+                    ShopType = ShopType.White80,
+                    ItemId = 27589,
+                    Cost = 5,
+                    Yield = 1
+                }
+            },
+
+            #endregion WhiteCrafter80
+
 #endif
         };
 
@@ -4066,9 +4876,6 @@ namespace ExBuddy.OrderBotTags.Behaviors.Objects
             return Enumerable.Empty<INpc>();
         }
 
-        public static IEnumerable<T> GetNpcsByLocation<T>(Locations location) where T : INpc
-        {
-            return GetNpcsByLocation(location).OfType<T>();
-        }
+        public static IEnumerable<T> GetNpcsByLocation<T>(Locations location) where T : INpc { return GetNpcsByLocation(location).OfType<T>(); }
     }
 }
