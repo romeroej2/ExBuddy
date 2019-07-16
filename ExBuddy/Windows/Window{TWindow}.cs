@@ -10,8 +10,9 @@
 	using ff14bot.Managers;
 	using System;
 	using System.Threading.Tasks;
+    using ff14bot.RemoteWindows;
 
-	public abstract class Window<TWindow>
+    public abstract class Window<TWindow>
 		where TWindow : Window<TWindow>, new()
 	{
 		// ReSharper disable once StaticMemberInGenericType
@@ -79,7 +80,10 @@
 				if (!IsValid)
 				{
 					Logger.Instance.Verbose(Localization.Localization.Window_Closed, Name);
-					return result;
+#if !RB_CN
+                    await CloseSelectString();
+#endif
+                    return result;
 				}
 
 				Logger.Instance.Verbose(Localization.Localization.Window_WaitToClose, interval * 2, Name);
@@ -88,7 +92,10 @@
 				if (!IsValid)
 				{
 					Logger.Instance.Verbose(Localization.Localization.Window_Closed, Name);
-					return result;
+#if !RB_CN
+                    await CloseSelectString();
+#endif
+                    return result;
 				}
 
 				Logger.Instance.Verbose(Localization.Localization.Window_UnexpectedResult, Name);
@@ -101,9 +108,24 @@
 			}
 
 			return result;
-		}
+        }
 
-		public virtual async Task<bool> CloseInstanceGently(byte maxTicks = 10, ushort interval = 200)
+        private async Task<bool> CloseSelectString(ushort interval = 250)
+        {
+            await Coroutine.Wait(1000, () => SelectString.IsOpen);
+
+            if (SelectString.IsOpen)
+            {
+                SelectString.ClickSlot((uint) SelectString.LineCount - 1);
+            }
+
+            await Coroutine.Wait(1000, () => !SelectString.IsOpen);
+
+            return !SelectString.IsOpen;
+        }
+
+
+        public virtual async Task<bool> CloseInstanceGently(byte maxTicks = 10, ushort interval = 200)
 		{
 			if (!IsValid)
 			{

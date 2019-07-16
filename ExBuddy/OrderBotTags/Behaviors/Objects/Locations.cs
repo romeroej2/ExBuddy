@@ -12,6 +12,10 @@
 
         Idyllshire,
 
-        RhalgrsReach
+        RhalgrsReach,
+
+        Eulmore,
+
+        TheCrystarium
     }
 }

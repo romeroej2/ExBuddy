@@ -111,6 +111,7 @@
     <Compile Include="OrderBotTags\Behaviors\Entrax\TeleportTo.cs" />
     <Compile Include="OrderBotTags\Behaviors\Entrax\UseAuraItem.cs" />
     <Compile Include="OrderBotTags\Behaviors\ExFlyToTag.cs" />
+    <Compile Include="OrderBotTags\Behaviors\Objects\ShopJob.cs" />
     <Compile Include="OrderBotTags\Gather\ExSpearFishTag.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\Collect500GatheringRotation.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\Collect516GatheringRotation.cs" />

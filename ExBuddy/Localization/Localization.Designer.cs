@@ -1242,9 +1242,9 @@ namespace ExBuddy.Localization {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Unable to purchase item {0}, set location to Rhalgr&apos;s Reach..
         /// </summary>
-        internal static string ExTurnInCollectable_FailedPurchaseMorDhona {
+        internal static string ExTurnInCollectable_FailedPurchaseGorRhalgrsReach {
             get {
-                return ResourceManager.GetString("ExTurnInCollectable_FailedPurchaseMorDhona", resourceCulture);
+                return ResourceManager.GetString("ExTurnInCollectable_FailedPurchaseGorRhalgrsReach", resourceCulture);
             }
         }
         
