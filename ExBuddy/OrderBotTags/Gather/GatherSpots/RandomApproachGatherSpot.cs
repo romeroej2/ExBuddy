@@ -65,7 +65,7 @@
 
 		    if (!result) return false;
 
-		    var landed = MovementManager.IsDiving || await NewLandingTask();
+		    var landed = MovementManager.IsDiving || await NewNewLandingTask();
 		    if (landed && Core.Player.IsMounted && !MovementManager.IsDiving)
                 ActionManager.Dismount();
 
@@ -82,21 +82,11 @@
             return result;
         }
 
-        private async Task<bool> NewLandingTask()
+        private async Task<bool> NewNewLandingTask()
         {
             if (!MovementManager.IsFlying) { return true; }
 
-            var _en = "Mounted"; // Works on all Languages.
-            //var _jp = "??"; Don't know Mounted name in JP
-            //var _fr = "Sur une monture";
-            //var _de = "Beritten";
-            //var _cn ="??"; Don't know Mounted name in CN
-
-            // statusoff is persistent thru all versions (CN is unknown).
-            ChatManager.SendChat("/statusoff \"" + _en + "\"");
-
-            while (MovementManager.IsFlying) { await Coroutine.Yield(); }
-
+            while (MovementManager.IsFlying) { ActionManager.Dismount(); await Coroutine.Sleep(500); }
             return true;
         }
     }
