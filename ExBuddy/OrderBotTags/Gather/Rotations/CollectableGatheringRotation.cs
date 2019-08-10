@@ -39,7 +39,7 @@
 			while (tag.Node.CanGather && GatheringManager.SwingsRemaining > tag.SwingsRemaining && rarity > 0
 				   && Behaviors.ShouldContinue)
 			{
-				while (!SelectYesNoItem.IsOpen && tag.Node.CanGather && GatheringManager.SwingsRemaining > tag.SwingsRemaining
+				while (!SelectYesno.IsOpen && tag.Node.CanGather && GatheringManager.SwingsRemaining > tag.SwingsRemaining
 					   && rarity > 0 && Behaviors.ShouldContinue)
 				{
 					if (!GatheringMasterpiece.IsOpen)
@@ -58,16 +58,16 @@
 				await Coroutine.Yield();
 				var swingsRemaining = GatheringManager.SwingsRemaining - 1;
 
-				while (SelectYesNoItem.IsOpen && rarity > 0 && Behaviors.ShouldContinue)
+				while (SelectYesno.IsOpen && rarity > 0 && Behaviors.ShouldContinue)
 				{
 					tag.Logger.Info(
 						"Collected item: {0}, value: {1} at {2} ET",
 						tag.GatherItem.ItemData.EnglishName,
-						SelectYesNoItem.CollectabilityValue,
+                        SelectYesno.CollectabilityValue,
 						WorldManager.EorzaTime);
 
-					SelectYesNoItem.Yes();
-					await Coroutine.Wait(2000, () => !SelectYesNoItem.IsOpen);
+                    SelectYesno.Yes();
+					await Coroutine.Wait(2000, () => !SelectYesno.IsOpen);
 				}
 
 				var ticks = 0;
@@ -130,6 +130,11 @@
 		protected async Task Methodical(ExGatherTag tag)
 		{
 			await tag.Cast(Ability.MethodicalAppraisal);
+		}
+		
+		protected async Task Stickler(ExGatherTag tag)
+		{
+			await tag.Cast(Ability.Stickler);
 		}
 
 		protected async Task DiscerningMethodical(ExGatherTag tag)
