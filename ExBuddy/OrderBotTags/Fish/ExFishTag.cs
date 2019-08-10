@@ -65,6 +65,7 @@ namespace ExBuddy.OrderBotTags.Fish
 					InitFishSpotComposite,
 					new ExCoroutineAction(ctx => HandleCollectable(), this),
 					ReleaseComposite,
+                    IdenticalCastComposite,
 					MoochComposite,
 					FishCountLimitComposite,
 					InventoryFullComposite,
@@ -107,6 +108,7 @@ namespace ExBuddy.OrderBotTags.Fish
 			isFishIdentified = false;
 			fishlimit = GetFishLimit();
 			checkRelease = false;
+            checkIdenticalCast = false;
 
 			// Temp fix, only set it to true if it was initially true. Need to find out why this value is false here when it shouldn't be.
 			if (initialMountSetting)
@@ -267,10 +269,10 @@ namespace ExBuddy.OrderBotTags.Fish
 				return false;
 			}
 
-			if (!SelectYesNoItem.IsOpen)
+			if (!SelectYesno.IsOpen)
 			{
 				//Wait a few seconds
-				var opened = await Coroutine.Wait(5000, () => SelectYesNoItem.IsOpen);
+				var opened = await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 				if (!opened)
 				{
 					Logger.Info("SelectYesNoItem never appeared");
@@ -282,7 +284,7 @@ namespace ExBuddy.OrderBotTags.Fish
 			var itemName = string.Empty;
 			if (!string.IsNullOrWhiteSpace(Collectables.First().Name))
 			{
-				var item = SelectYesNoItem.Item;
+				var item = SelectYesno.Item;
 				if (item == null
 					|| !Collectables.Any(c => string.Equals(c.Name, item.EnglishName, StringComparison.InvariantCultureIgnoreCase)))
 				{
@@ -292,7 +294,7 @@ namespace ExBuddy.OrderBotTags.Fish
 							!Collectables.Any(c => string.Equals(c.Name, item.EnglishName, StringComparison.InvariantCultureIgnoreCase)))
 						   && ticks++ < 60 && Behaviors.ShouldContinue)
 					{
-						item = SelectYesNoItem.Item;
+						item = SelectYesno.Item;
 						await Coroutine.Yield();
 					}
 
@@ -318,20 +320,20 @@ namespace ExBuddy.OrderBotTags.Fish
 
 			// handle
 
-			var value = SelectYesNoItem.CollectabilityValue;
+			var value = SelectYesno.CollectabilityValue;
 
 			if (value >= required)
 			{
 				Logger.Info(Localization.Localization.ExFish_Collecting, itemName, value, required);
-				SelectYesNoItem.Yes();
+                SelectYesno.Yes();
 			}
 			else
 			{
 				Logger.Info(Localization.Localization.ExFish_Declining, itemName, value, required);
-				SelectYesNoItem.No();
+                SelectYesno.No();
 			}
 
-			await Coroutine.Wait(3000, () => !SelectYesNoItem.IsOpen && FishingManager.State != FishingState.Waitin);
+			await Coroutine.Wait(3000, () => !SelectYesno.IsOpen && FishingManager.State != FishingState.Waitin);
 
 			return true;
 		}
@@ -522,9 +524,11 @@ namespace ExBuddy.OrderBotTags.Fish
 
 		private BotEvent cleanup;
 
-		private bool checkRelease;
+        private bool checkRelease;
 
-		private bool isSitting;
+        private bool checkIdenticalCast;
+
+        private bool isSitting;
 
 		private bool isFishIdentified;
 
@@ -644,10 +648,13 @@ namespace ExBuddy.OrderBotTags.Fish
 		[XmlAttribute("FishEyes")]
 		public bool FishEyes { get; set; }
 
-		[XmlAttribute("Snagging")]
-		public bool Snagging { get; set; }
+        [XmlAttribute("Snagging")]
+        public bool Snagging { get; set; }
 
-		[XmlElement("PatienceTugs")]
+        [XmlAttribute("IdenticalCast")]
+        public bool IdenticalCast { get; set; }
+
+        [XmlElement("PatienceTugs")]
 		public List<PatienceTug> PatienceTugs { get; set; }
 
 		#endregion Public Properties
@@ -691,7 +698,7 @@ namespace ExBuddy.OrderBotTags.Fish
 					new Decorator(
 						ret =>
 							fishcount >= fishlimit && !HasPatience && CanDoAbility(Ability.Quit)
-							&& FishingManager.State == FishingState.PoleReady && !SelectYesNoItem.IsOpen,
+							&& FishingManager.State == FishingState.PoleReady && !SelectYesno.IsOpen,
 						new Sequence(
 							new Sleep(2, 3),
 							new Action(r => { DoAbility(Ability.Quit); }),
@@ -868,36 +875,65 @@ namespace ExBuddy.OrderBotTags.Fish
 			}
 		}
 
-		protected Composite ReleaseComposite
-		{
-			get
-			{
-				return
-					new Decorator(
-						ret =>
-							checkRelease && FishingManager.State == FishingState.PoleReady && CanDoAbility(Ability.Release)
-							&& (Keepers.Count != 0 || KeepNone),
-						new Sequence(
-							new Wait(
-								2,
-								ret => isFishIdentified,
-								new Action(
-									r =>
-									{
-										// If its not a keeper AND (we aren't mooching OR we can't mooch) AND Keeper is enable, then release
-										if (!Keepers.Any(FishResult.IsKeeper) && (MoochLevel == 0 || !CanDoAbility(Ability.Mooch)) && EnableKeeper)
-										{
-											DoAbility(Ability.Release);
-											Logger.Info(Localization.Localization.ExFish_Release + FishResult.Name);
-										}
+        protected Composite IdenticalCastComposite
+        {
+            get
+            {
+                return
+                    new Decorator(
+                        ret =>
+                            IdenticalCast && checkIdenticalCast && FishingManager.State == FishingState.PoleReady && CanDoAbility(Ability.IdenticalCast)
+                            && (Keepers.Count != 0 || KeepNone),
+                        new Sequence(
+                            new Wait(
+                                2,
+                                ret => isFishIdentified,
+                                new Action(
+                                    r =>
+                                    {
+                                        // If its a keeper AND (we aren't mooching OR we can't mooch) AND Keeper is enabled, then use Identical Cast
+                                        if (Keepers.Any(FishResult.IsKeeper) && (MoochLevel == 0 || !CanDoAbility(Ability.Mooch)) && EnableKeeper)
+                                        {
+                                            DoAbility(Ability.IdenticalCast);
+                                            Logger.Info(Localization.Localization.ExFish_IdenticalCast, FishResult.Name);
+                                        }
 
-										checkRelease = false;
-									})),
-							new Wait(2, ret => !CanDoAbility(Ability.Release), new ActionAlwaysSucceed())));
-			}
-		}
+                                        checkIdenticalCast = false;
+                                    })),
+                            new Wait(2, ret => !CanDoAbility(Ability.Release), new ActionAlwaysSucceed())));
+            }
+        }
 
-		protected Composite CastComposite
+        protected Composite ReleaseComposite
+        {
+            get
+            {
+                return
+                    new Decorator(
+                        ret =>
+                            checkRelease && FishingManager.State == FishingState.PoleReady && CanDoAbility(Ability.Release)
+                            && (Keepers.Count != 0 || KeepNone),
+                        new Sequence(
+                            new Wait(
+                                2,
+                                ret => isFishIdentified,
+                                new Action(
+                                    r =>
+                                    {
+                                        // If its not a keeper AND (we aren't mooching OR we can't mooch) AND Keeper is enabled, then release
+                                        if (!Keepers.Any(FishResult.IsKeeper) && (MoochLevel == 0 || !CanDoAbility(Ability.Mooch)) && EnableKeeper)
+                                        {
+                                            DoAbility(Ability.Release);
+                                            Logger.Info(Localization.Localization.ExFish_Release, FishResult.Name);
+                                        }
+
+                                        checkRelease = false;
+                                    })),
+                            new Wait(2, ret => !CanDoAbility(Ability.Release), new ActionAlwaysSucceed())));
+            }
+        }
+
+        protected Composite CastComposite
 		{
 			get
 			{
@@ -1092,6 +1128,7 @@ namespace ExBuddy.OrderBotTags.Fish
 		{
 			isFishIdentified = false;
 			checkRelease = true;
+            checkIdenticalCast = true;
 			FishingManager.Cast();
 			ResetMooch();
 		}
