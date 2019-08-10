@@ -1,4 +1,5 @@
 ﻿using System;
+using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.NeoProfiles;
@@ -11,11 +12,16 @@ namespace ExBuddy.Helpers
     {
         public static ushort GetGpPerTick()
         {
-            return (CharacterResource.Me.CurrentJob == ClassJobType.Miner && ConditionParser.IsQuestCompleted(68094))
-                || (CharacterResource.Me.CurrentJob == ClassJobType.Botanist && ConditionParser.IsQuestCompleted(68160))
-                || (CharacterResource.Me.CurrentJob == ClassJobType.Fisher && ConditionParser.IsQuestCompleted(68435))
-                ? (ushort) 6
-                : (ushort) 5;
+			ushort gpTick = 5;
+
+            if (CharacterResource.Me.CurrentJob == ClassJobType.Miner && ConditionParser.IsQuestCompleted(68094) ||
+                CharacterResource.Me.CurrentJob == ClassJobType.Botanist && ConditionParser.IsQuestCompleted(68160) ||
+                CharacterResource.Me.CurrentJob == ClassJobType.Fisher && ConditionParser.IsQuestCompleted(68435))
+            { gpTick++; }
+
+            if (Core.Player.ClassLevel >= 80) gpTick++;
+			
+            return gpTick;
         }
 
         public static ushort GetEffectiveGp(int ticksTillGather)
