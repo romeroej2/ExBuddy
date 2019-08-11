@@ -100,20 +100,33 @@ namespace ExBuddy.OrderBotTags.Behaviors
             foreach (var lines in SelectString.Lines())
             {
                 // TODO: Add CN 'in progress' text.
-                if (lines.EndsWith("(In progress)") || lines.EndsWith("(Gehilfe beschäftigt)") || lines.EndsWith("[Tâche en cours]") || lines.EndsWith("[依頼中]")) return VentureCheck.InProgress;
-                if (!lines.EndsWith("(Complete)") || !lines.EndsWith("Unternehmung einsehen") || !lines.EndsWith("tâche terminée") || !lines.EndsWith("[完了]") || !lines.EndsWith("[探险归来]")) continue;
-                // Click on the completed venture
-                SelectString.ClickSlot(5);
-                await Coroutine.Wait(5000, () => RetainerTaskResult.IsOpen);
-                // Assign a new venture
-                RetainerTaskResult.Reassign();
-                await Coroutine.Wait(5000, () => RetainerTaskAsk.IsOpen);
-                // Confirm new venture
-                RetainerTaskAsk.Confirm();
-                await Coroutine.Wait(5000, () => Talk.DialogOpen);
-                // Skip dialog
-                Talk.Next();
-                return VentureCheck.Completed;
+                if (lines.Contains("(Complete on ") ||
+                    lines.Contains("(Abschluss am ") ||
+                    lines.Contains("[Fin le ") ||
+                    lines.Contains("確認　[～"))
+                {
+                    return VentureCheck.InProgress;
+                }
+
+                if (lines.EndsWith("(Complete)") ||
+                    lines.EndsWith("Unternehmung einsehen") ||
+                    lines.EndsWith("tâche terminée") ||
+                    lines.EndsWith("[完了]") ||
+                    lines.EndsWith("[探险归来]"))
+                {
+                    // Click on the completed venture
+                    SelectString.ClickSlot(5);
+                    await Coroutine.Wait(5000, () => RetainerTaskResult.IsOpen);
+                    // Assign a new venture
+                    RetainerTaskResult.Reassign();
+                    await Coroutine.Wait(5000, () => RetainerTaskAsk.IsOpen);
+                    // Confirm new venture
+                    RetainerTaskAsk.Confirm();
+                    await Coroutine.Wait(5000, () => Talk.DialogOpen);
+                    // Skip dialog
+                    Talk.Next();
+                    return VentureCheck.Completed;
+                }
             }
             return VentureCheck.None;
         }
