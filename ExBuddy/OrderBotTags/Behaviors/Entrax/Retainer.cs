@@ -1,6 +1,7 @@
 ﻿// ReSharper disable once CheckNamespace
 namespace ExBuddy.OrderBotTags.Behaviors
 {
+#if !RB_CN
     using System.Linq;
     using System.Threading.Tasks;
     using Buddy.Coroutines;
@@ -29,7 +30,7 @@ namespace ExBuddy.OrderBotTags.Behaviors
             var retainerList = new RetainerList();
 
             foreach (var unit in GameObjectManager.GetObjectsOfType<EventObject>().OrderBy(r => r.Distance()))
-                if (unit.Name == "Summoning Bell" || unit.Name == "Sonnette" || unit.Name == "Krämerklingel" || unit.Name == "リテイナーベル")
+                if (unit.Name == "Summoning Bell" || unit.Name == "Sonnette" || unit.Name == "Krämerklingel" || unit.Name == "リテイナーベル" || unit.Name == "传唤铃")
                 {
                     unit.Interact();
                     break;
@@ -98,8 +99,9 @@ namespace ExBuddy.OrderBotTags.Behaviors
         {
             foreach (var lines in SelectString.Lines())
             {
-                if (lines.EndsWith("(In progress)")) return VentureCheck.InProgress;
-                if (!lines.EndsWith("(Complete)")) continue;
+                // TODO: Add CN 'in progress' text.
+                if (lines.EndsWith("(In progress)") || lines.EndsWith("(Gehilfe beschäftigt)") || lines.EndsWith("[Tâche en cours]") || lines.EndsWith("[依頼中]")) return VentureCheck.InProgress;
+                if (!lines.EndsWith("(Complete)") || !lines.EndsWith("Unternehmung einsehen") || !lines.EndsWith("tâche terminée") || !lines.EndsWith("[完了]") || !lines.EndsWith("[探险归来]")) continue;
                 // Click on the completed venture
                 SelectString.ClickSlot(5);
                 await Coroutine.Wait(5000, () => RetainerTaskResult.IsOpen);
@@ -116,4 +118,5 @@ namespace ExBuddy.OrderBotTags.Behaviors
             return VentureCheck.None;
         }
     }
+#endif
 }
