@@ -909,7 +909,8 @@
 				typeof (ElementalGatheringRotation),
 				typeof (TopsoilGatheringRotation), typeof (MapGatheringRotation), typeof (SmartQualityGatheringRotation),
 				typeof (SmartYieldGatheringRotation), typeof (YieldAndQualityGatheringRotation),
-				typeof (NewbCollectGatheringRotation)
+				typeof (NewbCollectGatheringRotation),
+                typeof (EndGameYieldAndQualityGatheringRotation), typeof (EndGameYieldRotation), typeof (EndGameEphemeralGatheringRotation), typeof (CollectEndGameGatheringRotation)
 			};
 		}
 

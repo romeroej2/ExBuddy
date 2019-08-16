@@ -29,6 +29,7 @@
 						{Ability.ImpulsiveAppraisalII, 302},
 						{Ability.IncreaseGatherChanceOnce15, 4086},
 						{Ability.IncreaseGatherYieldOnce, 4087},
+						{Ability.IncreaseGatherYieldOnce2, 273},
 						{Ability.CollectorsGlove, 4088},
 						{Ability.MethodicalAppraisal, 4089},
 						{Ability.InstinctualAppraisal, 4090},
@@ -39,7 +40,12 @@
 						{Ability.Luck, 4095},
 						{Ability.IncreaseGatherQualityOnce10, 4096},
 						{Ability.IncreaseGatherQualityOnce20, 4097},
-						{Ability.SingleMind, 4098}
+						{Ability.SingleMind, 4098},
+						{Ability.PickClean, 4588},
+						{Ability.GivingLand, 4590},
+						{Ability.Stickler, 4594},
+						{Ability.IncreaseGatherChance10Quality20, 4606},
+						{Ability.IncreaseGatherQualityRandom, 275}
 					}
 				},
                 {
@@ -63,6 +69,7 @@
                         {Ability.ImpulsiveAppraisalII, 301},
                         {Ability.IncreaseGatherChanceOnce15, 4072},
                         {Ability.IncreaseGatherYieldOnce, 4073},
+						{Ability.IncreaseGatherYieldOnce2, 272},
                         {Ability.CollectorsGlove, 4074},
                         {Ability.MethodicalAppraisal, 4075},
                         {Ability.InstinctualAppraisal, 4076},
@@ -73,7 +80,12 @@
                         {Ability.Luck, 4081},
                         {Ability.IncreaseGatherQualityOnce10, 4082},
                         {Ability.IncreaseGatherQualityOnce20, 4083},
-                        {Ability.SingleMind, 4084}
+                        {Ability.SingleMind, 4084},
+						{Ability.PickClean, 4587},
+						{Ability.GivingLand, 4589},
+						{Ability.Stickler, 4593},
+						{Ability.IncreaseGatherChance10Quality20, 4605},
+						{Ability.IncreaseGatherQualityRandom, 274}
                     }
                 },
                 {
@@ -108,6 +120,9 @@
                         {Ability.NaturesBounty, 7909},
                         {Ability.Salvage, 7910},
                         {Ability.Truth, 7911},
+						{Ability.SurfaceSlap, 4595},
+                        {Ability.IdenticalGig, 4591},
+                        {Ability.IdenticalCast, 4596},
                     }
                 }
             };
@@ -167,6 +182,8 @@
 		IncreaseGatherChanceOnce15, // 4072, 4086
 
 		IncreaseGatherYieldOnce, // 4073, 4087
+		
+		IncreaseGatherYieldOnce2, // 272, 273
 
 		CollectorsGlove, // = 4074,4088
 
@@ -189,6 +206,16 @@
 		IncreaseGatherQualityOnce20, // = 4083, 4097
 
 		SingleMind, // = 4084,4098
+		
+		PickClean, // = 4587,4588
+		
+		GivingLand, // = 4589,4590
+		
+		Stickler, // = 4593,4594
+		
+		IncreaseGatherChance10Quality20, // = 4605,4606
+		
+		IncreaseGatherQualityRandom, // = 274,275
 
         // Fisher
         CastLight,
@@ -239,6 +266,12 @@
     
         NaturesBounty,
     
-        Salvage
+        Salvage,
+		
+		SurfaceSlap,
+    
+        IdenticalGig,
+    
+        IdenticalCast
     }
 }
